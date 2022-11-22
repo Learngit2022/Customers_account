@@ -1,0 +1,79 @@
+#%RAML 1.0
+title: Accounts-sys-api
+baseUri: http:/localhost
+
+types:
+  account: !include /data-type/Account.raml
+
+/accounts:
+  get:
+    displayName: get all Accounts
+    description: retrieve alist of all accounts based on the given query parameters
+    headers:
+      Requester_ID:
+        displayName: requester ID
+        description: Id of the person requesting the accounts information
+        type: string
+        required: true
+        default: R-ID-145
+    queryParameters:
+      type:
+        displayName: account type
+        description: type of accounts,such as personal or bussiness
+        required: true
+        type: string
+        enum:
+          - personal
+          - bussiness
+      Name:
+        displayName: Owner's Name
+        description: Name of the account owner
+        required: false
+        type: string
+      Country:
+        displayName: Owners's country
+        description: country of residence of the account owner
+        required: false
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            type: account[]
+            example: !include examples/accountexample.raml
+  post:
+    displayName: add account
+    description: create an account/s
+    headers:
+      Requester_ID:
+        displayName: requester ID
+        description: Id of the person requesting the accounts information
+        type: string
+        required: true
+    body:
+      application/json:
+        type: account[]
+        example: !include examples/1-post1accountexample.raml
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              "message": accounts created
+
+
+
+          
+              
+        
+          
+
+            
+
+                      
+
+
+
+              
+
+      

@@ -1,0 +1,5 @@
+%dw 2.0
+
+type auto_9298084f_4321_456a_b824_c114a401d809_Input_Payload = Array<{  accountId?: String,   firstName: String,   lastName: String,   country: String,   creationdate?: String,   address: String,   postalcode: String,   accounttype: String,   miles: String,   _?: Any} {"description": "defines the account data type",
+"label": "account"}>
+
